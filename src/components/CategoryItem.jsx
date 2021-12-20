@@ -7,6 +7,7 @@ const Container = styled.div`
   margin: 3px;
   height: 70vh;
   position: relative;
+  background-color: #edf1fc ;
 `;
 
 const Image = styled.img`
@@ -27,6 +28,7 @@ const Info = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
 `;
 
 const Title = styled.h1`
@@ -35,19 +37,19 @@ const Title = styled.h1`
 `;
 
 const Button = styled.button`
-    border:none;
-    padding: 10px;
-    background-color: white;
-    color:gray;
-    cursor: pointer;
-    font-weight: 600;
+  border: none;
+  padding: 10px;
+  background-color: #f8e0d7;
+  color: gray;
+  cursor: pointer;
+  font-weight: 600;
 `;
 
 const CategoryItem = ({ item }) => {
   const history = useHistory();
 
   return (
-    <Container>
+    <Container >
       <Image src={item.img} />
       <Info>
         <Title>{item.title}</Title>

@@ -4,7 +4,7 @@ import {
   MailOutline,
   Phone,
   Pinterest,
-  Room,
+  
   Twitter,
 } from "@material-ui/icons";
 import styled from "styled-components";
@@ -12,7 +12,8 @@ import { mobile } from "../responsive";
 
 const Container = styled.div`
   display: flex;
-  ${mobile({ flexDirection: "column" })}
+  background-color: #bdbab7;
+  ${mobile({ flexDirection: "column" })};
 `;
 
 const Left = styled.div`
@@ -69,9 +70,10 @@ const ListItem = styled.li`
 
 const Right = styled.div`
   flex: 1;
+  display: flex;
+  flex-direction: column;
   padding: 20px;
   ${mobile({ backgroundColor: "#fff8f8" })}
-
 `;
 
 const ContactItem = styled.div`
@@ -85,11 +87,11 @@ const Footer = () => {
   return (
     <Container>
       <Left>
-        <Logo>PHARMOSUL</Logo>
+        <Logo>صيدليتي</Logo>
         <Desc>
-          There are many variations of passages of Lorem Ipsum available, but
-          the majority have suffered alteration in some form, by injected
-          humour, or randomised words which don’t look even slightly believable.
+          مع موقعنا ستستطيع شراء المننتجات الطبية التي لا تحتاج وصفة طبية بكل
+          سهولة وسرعة و في حالة احتجت دواء لا يصرف الا بوصفة طبية فسنساعدك
+          بالعثور على صيدلية بالقر من موقعك الجغرافي
         </Desc>
         <SocialContainer>
           <SocialIcon color="3B5999">
@@ -107,7 +109,7 @@ const Footer = () => {
         </SocialContainer>
       </Left>
       <Center>
-        <Title>Useful Links</Title>
+        {/* <Title>Useful Links</Title>
         <List>
           <ListItem>Home</ListItem>
           <ListItem>Cart</ListItem>
@@ -115,18 +117,16 @@ const Footer = () => {
           <ListItem>Order Tracking</ListItem>
           <ListItem>Wishlist</ListItem>
           <ListItem>Terms</ListItem>
-        </List>
+        </List>*/}
       </Center>
       <Right>
-        <Title>Contact</Title>
+        <Title>يمكنك التواصل معنا عبر</Title>
+
         <ContactItem>
-          <Room style={{marginRight:"10px"}}/> 622 Dixie Path , South Tobinchester 98336
+          <Phone style={{ marginRight: "10px" }} /> +1 234 56 78
         </ContactItem>
         <ContactItem>
-          <Phone style={{marginRight:"10px"}}/> +1 234 56 78
-        </ContactItem>
-        <ContactItem>
-          <MailOutline style={{marginRight:"10px"}} /> contact@lama.dev
+          <MailOutline style={{ marginRight: "10px" }} /> contact@lama.dev
         </ContactItem>
       </Right>
     </Container>

@@ -8,7 +8,8 @@ import { useContext } from "react";
 import { UserContext } from "../context/info";
 
 const Container = styled.div`
-  height: 60px;
+  height: 70px;
+  background-color: #f8e0d7;
   ${mobile({ height: "50px" })}
 `;
 
@@ -55,7 +56,7 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Right>
-          <Link to={"/"} style={{textDecoration:"none" , color: "black"}}>    <Logo>PHARMOSUL</Logo> </Link>
+          <Link to={"/"} style={{textDecoration:"none" , color: "black"}}>    <Logo>صيدليتي</Logo> </Link>
         </Right>
         <Left>
           {!isAuth && <MenuItem onClick={() => history.push('/register')} > انشئ حساب </MenuItem>}
