@@ -4,7 +4,9 @@ import Products from "../components/Products";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
 
-const Container = styled.div``;
+const Container = styled.div`
+  background-color: #fcf1ed;
+`;
 
 const Title = styled.h1`
   margin: 20px;
