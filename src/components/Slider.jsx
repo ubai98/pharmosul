@@ -54,6 +54,7 @@ const ImgContainer = styled.div`
 
 const Image = styled.img`
   height: 100%;
+  border-radius: 0 25px 25px 0;
 `;
 
 const InfoContainer = styled.div`

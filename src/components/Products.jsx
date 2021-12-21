@@ -5,11 +5,12 @@ import { Api } from "./axios";
 import Product from "./Product";
 
 const Container = styled.div`
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    background-color: #fcf1ed;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #fcf1ed;
+  border-radius: 25px;
 `;
 
 const Products = (props) => {

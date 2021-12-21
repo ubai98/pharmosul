@@ -50,7 +50,6 @@ const ProductList = () => {
   return (
     <Container>
       <Navbar />
-      <Title>المنتجات</Title>
       <FilterContainer>
         
         <Filter>
