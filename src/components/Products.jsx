@@ -8,6 +8,7 @@ const Container = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   background-color: #fcf1ed;
+  border-radius: 25px;
 `;
 
 const Products = () => {

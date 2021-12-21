@@ -12,7 +12,7 @@ import { mobile } from "../responsive";
 
 const Container = styled.div`
   display: flex;
-  background-color: #f4f4f4;
+  background-color: #edf8fc;
 
   ${mobile({ flexDirection: "column" })};
 `;
@@ -53,20 +53,8 @@ const Center = styled.div`
 `;
 
 const Title = styled.h3`
-  margin-bottom: 30px;
-`;
-
-const List = styled.ul`
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-const ListItem = styled.li`
-  width: 50%;
   margin-bottom: 10px;
+  padding-top: 20px;
 `;
 
 const Right = styled.div`
@@ -78,7 +66,7 @@ const Right = styled.div`
 `;
 
 const ContactItem = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
 `;
@@ -92,22 +80,8 @@ const Footer = () => {
         <Desc>
           مع موقعنا ستستطيع شراء المننتجات الطبية التي لا تحتاج وصفة طبية بكل
           سهولة وسرعة و في حالة احتجت دواء لا يصرف الا بوصفة طبية فسنساعدك
-          بالعثور على صيدلية بالقر من موقعك الجغرافي
+          بالعثور على صيدلية بالقرب من موقعك الجغرافي
         </Desc>
-        <SocialContainer>
-          <SocialIcon color="3B5999">
-            <Facebook />
-          </SocialIcon>
-          <SocialIcon color="E4405F">
-            <Instagram />
-          </SocialIcon>
-          <SocialIcon color="55ACEE">
-            <Twitter />
-          </SocialIcon>
-          <SocialIcon color="E60023">
-            <Pinterest />
-          </SocialIcon>
-        </SocialContainer>
       </Left>
       <Center>
         {/* <Title>Useful Links</Title>
@@ -129,6 +103,20 @@ const Footer = () => {
         <ContactItem>
           <MailOutline style={{ marginRight: "10px" }} /> contact@lama.dev
         </ContactItem>
+        <SocialContainer>
+          <SocialIcon color="3B5999">
+            <Facebook />
+          </SocialIcon>
+          <SocialIcon color="E4405F">
+            <Instagram />
+          </SocialIcon>
+          <SocialIcon color="55ACEE">
+            <Twitter />
+          </SocialIcon>
+          <SocialIcon color="E60023">
+            <Pinterest />
+          </SocialIcon>
+        </SocialContainer>
       </Right>
     </Container>
   );
