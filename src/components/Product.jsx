@@ -21,7 +21,7 @@ const Product = ({ item }) => {
                         component="img"
                         width="100%"
                         height="150"
-                        image={item.img}
+                        image={`http://localhost:5500/images/${item.imagePath.split("\\")[2]}`} 
                         alt="green iguana"
                         
                     />

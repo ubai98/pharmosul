@@ -54,7 +54,7 @@ const CategoryItem = ({ item }) => {
       <Image src={item.img} />
       <Info>
         <Title>{item.title}</Title>
-        <Button onClick={() => history.push("/products")}  >SHOP NOW</Button>
+        <Button onClick={() => history.push(`/products/${item.id}`)}  >SHOP NOW</Button>
       </Info>
     </Container>
   );
