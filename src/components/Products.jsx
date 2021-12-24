@@ -15,7 +15,6 @@ const Container = styled.div`
 
 const Products = (props) => {
     const [products, setProducts] = useState([]);
-    const [pro, setPro] = useState([]);
 
     useEffect(() => {
         Api("products/").then((res) => {

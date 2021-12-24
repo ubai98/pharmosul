@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Navbar from "../components/Navbar";
 import Products from "../components/Products";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
@@ -49,7 +48,6 @@ const ProductList = () => {
 
   return (
     <Container>
-      <Navbar />
       <FilterContainer>
         
         <Filter>

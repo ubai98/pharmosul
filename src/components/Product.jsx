@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 const Product = ({ item }) => {
 
     return (
-        <Link to={`/product/${item.id}`} style={{ textDecoration: "none" }}>
+        <Link to={`/product/${item.id}`} style={{ textDecoration: "none" }} >
             <Card
                 sx={{ maxWidth: 345 }}
                 style={{ margin: "10px", borderRadius: "0.5px solid gray" }}
@@ -21,6 +21,7 @@ const Product = ({ item }) => {
                         component="img"
                         width="100%"
                         height="150"
+                        objectFit = "cover"
                         image={`http://localhost:5500/images/${item.imagePath.split("\\")[2]}`} 
                         alt="green iguana"
                         

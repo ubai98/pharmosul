@@ -42,6 +42,13 @@ const Right = styled.div`
   
 `;
 
+const Center = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  
+`;
+
 const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
@@ -49,8 +56,8 @@ const MenuItem = styled.div`
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 
-const Navbar = () => {
-  const{isAuth , logout} =useContext(UserContext)
+const Navbar = ({countCartItems}) => {
+  const{isAuth , logout , priv} =useContext(UserContext)
   const history= useHistory()
   return (
     <Container>
@@ -58,12 +65,13 @@ const Navbar = () => {
         <Right>
           <Link to={"/"} style={{textDecoration:"none" , color: "black"}}>    <Logo>صيدليتي</Logo> </Link>
         </Right>
+        {priv && <Center style={{textDecoration:"none" ,cursor:"pointer" , paddingRight: "350px"}} onClick={() => history.push('/dashboard')} >Dashboard </Center>}
         <Left>
           {!isAuth && <MenuItem onClick={() => history.push('/register')} > انشئ حساب </MenuItem>}
           {!isAuth && <MenuItem onClick={() => history.push('/login')} >تسجيل دخول</MenuItem>}
           {isAuth && <MenuItem onClick={logout} >تسجيل الخروج</MenuItem>}
           <MenuItem>
-            <Badge badgeContent={4} color="primary">
+            <Badge badgeContent={countCartItems} color="primary">
               <ShoppingCartOutlined onClick={() => history.push('/cart')} />
             </Badge>
           </MenuItem>

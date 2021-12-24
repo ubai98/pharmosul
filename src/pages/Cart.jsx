@@ -1,7 +1,7 @@
 import { Add, Remove } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 import { mobile } from "../responsive";
 
 const Container = styled.div``;
@@ -24,6 +24,7 @@ const Top = styled.div`
 `;
 
 const TopButton = styled.button`
+
   padding: 10px;
   font-weight: 600;
   cursor: pointer;
@@ -152,98 +153,75 @@ const Button = styled.button`
   font-weight: 600;
 `;
 
-const Cart = () => {
-  return (
+const Cart = ({ cartItems, onAdd, onRemove,onEmpty }) => {
+  const itemsPrice = cartItems.reduce((a, c) => a + c.qt * c.price, 0);
+  const shippingPrice = itemsPrice ==0?0: itemsPrice > 5000 ? 0 : 250;
+  const totalPrice = itemsPrice + shippingPrice;
+
+  
+  return (<>
     <Container>
-      <Navbar />
       <Wrapper>
-        <Title>YOUR BAG</Title>
+        <Title>عربتك</Title>
         <Top>
-          <TopButton>CONTINUE SHOPPING</TopButton>
-          <TopTexts>
-            <TopText>Shopping Bag(2)</TopText>
-            <TopText>Your Wishlist (0)</TopText>
-          </TopTexts>
-          <TopButton type="filled">CHECKOUT NOW</TopButton>
+        <Link to={`/products/1`} style={{ textDecoration: "none" }} > <TopButton>متابعة التسوق</TopButton> </Link>
+          
+            
+          <TopButton  onClick={()=>onEmpty()} >ازالة جميع العناصر</TopButton>
+
+          <TopButton type="filled">اكمال الطلب</TopButton>
         </Top>
         <Bottom>
           <Info>
-            <Product>
+          {cartItems.length == 0 && <h3>لا توجد عناصر في العربة </h3>}
+
+            {cartItems.map((item) => (
+              <Product key={item.id}>
               <ProductDetail>
-                <Image src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614188818-TD1MTHU_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHERS_THUNDER_b01b1013-cd8d-48e7-bed9-52db26515dc4.png?crop=1xw:1.00xh;center,top&resize=480%3A%2A" />
+                <Image src={`http://localhost:5500/images/${item.imagePath.split("\\")[2]}`} />
                 <Details>
                   <ProductName>
-                    <b>Product:</b> JESSIE THUNDER SHOES
+                    <b>المنتج:</b>  {item.title}
                   </ProductName>
                   <ProductId>
-                    <b>ID:</b> 93813718293
+                    <b>ID:</b> {item.id}
                   </ProductId>
-                  <ProductColor color="black" />
-                  <ProductSize>
-                    <b>Size:</b> 37.5
-                  </ProductSize>
                 </Details>
               </ProductDetail>
               <PriceDetail>
                 <ProductAmountContainer>
-                  <Add />
-                  <ProductAmount>2</ProductAmount>
-                  <Remove />
+                  <Add  onClick={() => onAdd(item)} style={{ cursor: "pointer" }}   />
+                  <ProductAmount>{item.qt}</ProductAmount>
+                  <Remove onClick={() => onRemove(item)} style={{ cursor: "pointer" }} />
                 </ProductAmountContainer>
-                <ProductPrice>$ 30</ProductPrice>
+                <ProductPrice>IQD {item.price * item.qt}</ProductPrice>
               </PriceDetail>
             </Product>
-            <Hr />
-            <Product>
-              <ProductDetail>
-                <Image src="https://i.pinimg.com/originals/2d/af/f8/2daff8e0823e51dd752704a47d5b795c.png" />
-                <Details>
-                  <ProductName>
-                    <b>Product:</b> HAKURA T-SHIRT
-                  </ProductName>
-                  <ProductId>
-                    <b>ID:</b> 93813718293
-                  </ProductId>
-                  <ProductColor color="gray" />
-                  <ProductSize>
-                    <b>Size:</b> M
-                  </ProductSize>
-                </Details>
-              </ProductDetail>
-              <PriceDetail>
-                <ProductAmountContainer>
-                  <Add />
-                  <ProductAmount>1</ProductAmount>
-                  <Remove />
-                </ProductAmountContainer>
-                <ProductPrice>$ 20</ProductPrice>
-              </PriceDetail>
-            </Product>
+            ) ) }
+            
+            
           </Info>
           <Summary>
-            <SummaryTitle>ORDER SUMMARY</SummaryTitle>
+            <SummaryTitle>معلومات الطلب</SummaryTitle>
             <SummaryItem>
-              <SummaryItemText>Subtotal</SummaryItemText>
-              <SummaryItemPrice>$ 80</SummaryItemPrice>
+              <SummaryItemText>سعر المنتجات</SummaryItemText>
+              <SummaryItemPrice>IQD {itemsPrice}</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
-              <SummaryItemText>Estimated Shipping</SummaryItemText>
-              <SummaryItemPrice>$ 5.90</SummaryItemPrice>
-            </SummaryItem>
-            <SummaryItem>
-              <SummaryItemText>Shipping Discount</SummaryItemText>
-              <SummaryItemPrice>$ -5.90</SummaryItemPrice>
+              <SummaryItemText>سعر التوصيل</SummaryItemText>
+              <SummaryItemPrice>IQD {shippingPrice}</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem type="total">
-              <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>$ 80</SummaryItemPrice>
+              <SummaryItemText>المجموع</SummaryItemText>
+              <SummaryItemPrice>IQD {totalPrice}</SummaryItemPrice>
             </SummaryItem>
-            <Button>CHECKOUT NOW</Button>
+            <Button>اكمال الطلب</Button>
           </Summary>
         </Bottom>
       </Wrapper>
       <Footer />
     </Container>
+    </>
   );
 };
 
